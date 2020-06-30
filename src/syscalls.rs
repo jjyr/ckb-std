@@ -2,11 +2,6 @@ use crate::ckb_constants::*;
 // re-export to maintain compatible with old versions
 pub use crate::error::SysError;
 
-#[link(name = "ckb-syscall")]
-extern "C" {
-    fn syscall(a0: u64, a1: u64, a2: u64, a3: u64, a4: u64, a5: u64, a6: u64, a7: u64) -> u64;
-}
-
 /// Exit, this script will be terminated after the exit syscall.
 /// exit code `0` represents verification is success, others represent error code.
 pub fn exit(code: i8) -> ! {
