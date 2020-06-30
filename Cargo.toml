@@ -11,12 +11,8 @@ exclude = ["docs"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
-default = ["ckb-allocator", "ckb-types"]
-libc = []
 
 [build-dependencies]
 cc = "1.0"
 
 [dependencies]
-ckb-types = { package = "ckb-standalone-types", version = "0.0.1-pre.1", default-features = false, optional = true }
-ckb-allocator = { version = "0.1.1", optional = true }
