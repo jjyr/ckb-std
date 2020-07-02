@@ -125,15 +125,12 @@ fn test_query() {
 
 #[no_mangle]
 pub fn main() -> i8 {
-    use ckb_std::check_stack_overflow;
-    test_query();
     test_basic();
     test_load_cell_field();
     test_load_tx_hash();
     test_partial_load_tx_hash();
     test_high_level_apis();
     test_query();
-    check_stack_overflow!();
     0
 }
 

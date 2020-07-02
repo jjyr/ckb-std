@@ -1,7 +1,7 @@
 use crate::ckb_constants::*;
+use crate::debug;
 use crate::error::SysError;
 use crate::syscalls;
-use crate::debug;
 use alloc::vec::Vec;
 use ckb_types::{packed::*, prelude::*};
 

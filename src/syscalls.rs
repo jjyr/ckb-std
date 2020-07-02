@@ -1,5 +1,5 @@
-use crate::ckb_constants::*;
 use crate::check_stack_overflow;
+use crate::ckb_constants::*;
 // re-export to maintain compatible with old versions
 pub use crate::error::SysError;
 
@@ -10,7 +10,8 @@ extern "C" {
 
 unsafe fn syscall(a0: u64, a1: u64, a2: u64, a3: u64, a4: u64, a5: u64, a6: u64, a7: u64) -> u64 {
     let ret = ecall(a0, a1, a2, a3, a4, a5, a6, a7);
-    //check_stack_overflow!();
+    #[cfg(feature = "check-stack-overflow")]
+    check_stack_overflow();
     ret
 }
 
