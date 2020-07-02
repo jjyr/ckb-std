@@ -25,3 +25,5 @@ pub use ckb_allocator;
 pub mod high_level;
 #[cfg(feature = "ckb-types")]
 pub use ckb_types;
+pub mod check_stack_overflow;
+

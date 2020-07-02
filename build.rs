@@ -1,5 +1,5 @@
 fn main() {
     cc::Build::new()
-        .file("src/asm/syscall.S")
-        .compile("ckb-syscall");
+        .file("src/asm/asm.S")
+        .compile("ckb-asm");
 }

@@ -15,6 +15,7 @@ pub const SYS_LOAD_CELL_DATA: u64 = 2092;
 pub const SYS_DEBUG: u64 = 2177;
 
 pub const CKB_SUCCESS: u64 = 0;
+
 #[derive(Eq, PartialEq, Debug, Clone, Copy)]
 #[repr(u64)]
 pub enum Source {

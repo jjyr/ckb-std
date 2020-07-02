@@ -1,6 +1,7 @@
 .text
-.globl syscall
+.globl ecall
 
-syscall:
+ecall:
     ecall
     ret
+

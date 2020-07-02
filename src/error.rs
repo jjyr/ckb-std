@@ -1,3 +1,7 @@
+/// ckb-std runtime error code
+pub const RT_ERROR_STACK_OVERFLOW: i8 = -128;
+pub const RT_ERROR_PANIC: i8 = -127;
+
 /// Syscall errors
 #[derive(Eq, PartialEq, Debug, Clone, Copy)]
 pub enum SysError {

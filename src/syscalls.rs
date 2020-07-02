@@ -1,16 +1,23 @@
 use crate::ckb_constants::*;
+use crate::check_stack_overflow;
 // re-export to maintain compatible with old versions
 pub use crate::error::SysError;
 
-#[link(name = "ckb-syscall")]
+#[link(name = "ckb-asm")]
 extern "C" {
-    fn syscall(a0: u64, a1: u64, a2: u64, a3: u64, a4: u64, a5: u64, a6: u64, a7: u64) -> u64;
+    fn ecall(a0: u64, a1: u64, a2: u64, a3: u64, a4: u64, a5: u64, a6: u64, a7: u64) -> u64;
+}
+
+unsafe fn syscall(a0: u64, a1: u64, a2: u64, a3: u64, a4: u64, a5: u64, a6: u64, a7: u64) -> u64 {
+    let ret = ecall(a0, a1, a2, a3, a4, a5, a6, a7);
+    //check_stack_overflow!();
+    ret
 }
 
 /// Exit, this script will be terminated after the exit syscall.
 /// exit code `0` represents verification is success, others represent error code.
 pub fn exit(code: i8) -> ! {
-    unsafe { syscall(code as u64, 0, 0, 0, 0, 0, 0, SYS_EXIT) };
+    unsafe { ecall(code as u64, 0, 0, 0, 0, 0, 0, SYS_EXIT) };
     loop {}
 }
 
@@ -393,6 +400,6 @@ pub fn debug(mut s: alloc::string::String) {
     s.push('\0');
     let c_str = s.into_bytes();
     unsafe {
-        syscall(c_str.as_ptr() as u64, 0, 0, 0, 0, 0, 0, SYS_DEBUG);
+        ecall(c_str.as_ptr() as u64, 0, 0, 0, 0, 0, 0, SYS_DEBUG);
     }
 }

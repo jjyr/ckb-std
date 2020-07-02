@@ -59,7 +59,7 @@ macro_rules! entry {
 
                 $crate::syscalls::debug(s);
             }
-            $crate::syscalls::exit(-1)
+            $crate::syscalls::exit($crate::error::RT_ERROR_PANIC)
         }
     };
 }
