@@ -14,6 +14,8 @@ exclude = ["docs"]
 default = ["allocator", "ckb-types"]
 allocator = [ "buddy-alloc" ]
 simulator = [ "ckb-x64-simulator" ]
+dl-c-impl = []
+dl-impl = []
 
 [build-dependencies]
 cc = "1.0"

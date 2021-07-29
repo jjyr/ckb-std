@@ -24,7 +24,9 @@ pub mod since;
 pub mod syscalls;
 #[cfg(feature = "ckb-types")]
 pub use ckb_types;
+#[cfg(feature = "dl-impl")]
 pub mod dynamic_loading;
+#[cfg(feature = "dl-c-impl")]
 pub mod dynamic_loading_c_impl;
 #[cfg(feature = "allocator")]
 pub use buddy_alloc;
