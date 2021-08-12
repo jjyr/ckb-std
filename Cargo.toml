@@ -19,6 +19,6 @@ simulator = [ "ckb-x64-simulator" ]
 cc = "1.0"
 
 [dependencies]
-ckb-types = { package = "ckb-standalone-types", version = "0.0.1-pre.1", default-features = false, optional = true }
+ckb-types = { package = "ckb-standalone-types", git = "https://github.com/jjyr/ckb-standalone-types.git", branch = "molecule-v0.8.0-alpha", default-features = false, optional = true }
 buddy-alloc = { version = "0.4.1", optional = true }
 ckb-x64-simulator = { version = "0.4.0", optional = true }
