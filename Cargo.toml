@@ -37,7 +37,7 @@ cc = "1.0"
 ckb-types = { package = "ckb-gen-types", version = "0.118", default-features = false, optional = true }
 ckb-hash = { version = "0.118", default-features = false, features = ["ckb-contract"], optional = true }
 
-buddy-alloc = { version = "0.5", optional = true }
+buddy-alloc = { git = "https://github.com/jjyr/buddy-alloc.git", branch = "master", optional = true }
 ckb-x64-simulator = { version = "0.9", optional = true }
 gcd = "2.3"
 log = { version = "0.4", optional = true, default-features = false }

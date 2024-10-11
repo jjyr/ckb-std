@@ -19,7 +19,7 @@ test-shared-lib:
 
 integration: check
 
-test: publish-crate-dryrun
+test:
 	make -C test test
 
 check:
